@@ -60,10 +60,10 @@ if ($.isNode()) {
                 }
                 continue
             }
-            authorCodeList = ['15d7924448d84c37a42ae2ff7927b883']
+            authorCodeList = ['f7143f08939448eb93c2d4579bc88cc5']
             $.bean = 0;
             $.authorCode = ownCode ? ownCode : authorCodeList[random(0, authorCodeList.length)]
-            $.activityId = 'e7c37c2548284d1eb7920079fbf6be68'
+            $.activityId = 'ecaf4a23237e403896efdc9507a31ea2'
             $.activityShopId = '1000014486'
             $.randomNum = random(1000000, 9999999)
             $.activityUrl = `https://lzkjdz-isv.isvjcloud.com/pool/captain/${$.randomNum}?activityId=${$.activityId}&signUuid=${encodeURIComponent($.authorCode)}&adsource=null&shareuserid4minipg=null&shopid=${$.activityShopId}&lng=00.000000&lat=00.000000&sid=&un_area=`
