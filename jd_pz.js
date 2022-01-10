@@ -17,6 +17,7 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 let inviteCodes = ["PKASTT0205KkcBVxhpiaVXVKv3bBXCTdWnIaRzTIjeQOc"]
+inviteCodes = $.isNode() ? (process.env.PZHB ? process.env.PZHB : `${inviteCodes}`) : ($.getdata('PZHB') ? $.getdata('PZHB') : `${inviteCodes}`);
 
 !(async () => {
   if (!cookiesArr[0]) {
