@@ -1,5 +1,5 @@
 
-const $ = new Env('膨胀红包助力');
+const $ = new Env('天降红包助力');
 
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
@@ -16,7 +16,7 @@ if ($.isNode()) {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
-let inviteCodes = ["PKASTT0205KkcBVxhpiaVXVKv3bBXCTdWnIaRzTIjeQOc"]
+let inviteCodes = ["TJASTT0205KkcM2dQjC6GQkOp5aVvCTdWnoaRzTcjeQOc"]
 
 !(async () => {
   if (!cookiesArr[0]) {
@@ -50,13 +50,13 @@ let inviteCodes = ["PKASTT0205KkcBVxhpiaVXVKv3bBXCTdWnIaRzTIjeQOc"]
 			}
 			
 		}catch(e){
-			$.log('', `❌ ${$.name}, 失败! 原因53: ${e}!`, '')
+			$.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
 		}
     }
   }
 })()
   .catch((e) => {
-    $.log('', `❌ ${$.name}, 失败! 原因59: ${e}!`, '')
+    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
   })
   .finally(() => {
     $.done();
@@ -76,8 +76,8 @@ function get_secretp(){
 	return new Promise((resolve) => {$.post(taskPostUrl("tigernian_getHomeData",body), async (err, resp, data) => {
       try {
         if (err) {
-          console.log(`${JSON.stringify(err)}79`)
-          console.log(`${$.name} API请求失败，请检查网路重试80`)
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -87,7 +87,7 @@ function get_secretp(){
 					
               } 
             } else {
-              console.log(`\n\nsecretp失败90:${JSON.stringify(data)}\n`)
+              console.log(`\n\nsecretp失败:${JSON.stringify(data)}\n`)
             }
           }
         }
@@ -101,26 +101,24 @@ function get_secretp(){
 }
 
 function tigernian_collectScore123(inviteId){
-	let body={"ss":{"extraData":{"log":`${new Date().getTime()}~1ARjT8NVAEPMDFGVUN2RDAxMQ%3D%3D.d2N3R3x3YXBCfHdsdggnKQJ7JXFwBAQ7Ond5dFp9amQ9RDp3Ky45AQskKkcsKSMxBH0iF3EYET5%2BBCcVe2g9.be2eb0ba~9%2C1~415495754757AB0E512E9033D8603E60D018508E~1keu22p~C~TRNHWhMKbGQYFEZdWkAPbRdRAhwFdR92aBwDDmYaAx0HUgUaQRcbE1IGHgR1HHZgGAIKZxtTGwYFBRtFFB0RUwAdBH0Yd2sfAyMAGkAZQxNrHRFQQ14VAwUaEEBEQA8UBAMDAA4ABwQFCAANDAcLCg9AGRRCUFMTDBNHQ0VEQ19BUBAfFRVQVxcPFVdQRUdDRUVWGxgUQldZQA9tDBkDABoDHwQdARsMaRoQWV1ADwcZF1RCFAsRUlUJUwBQVVEHUgZRAAIEVFIGBgEHVQBTCwwCBQoDWwcUGRdZQRQLEXtYXkJBFFdTQVQKAwIXGRVFFAsCAQUBDwgABQcCAlIBGhdfXBMMEx4DUgQOXAdQV1AGAAQbDQYEVFcABg5UVVELAVIFABVOF1BFVxULFFx8cnxBXghcWURBRVtRdAdbYkkddmJmDA0VFRZYRBENQHJZWlJbVBZ4XVQfEhsbWldEEQ1ADAcAAwQTGhNAVEMSDWICAgIfBFQFaxkXRV4UC2gVfHkXDxYaEFJZBkdZXFEVHRQIERsTAQcXBhgEERtADAcAAwQTGhMLBAcDAgoABQYABlEFBQYGAAIGAgYEAgMCCgYFHwQEJgcCBgYBBQUIAAIHAwQPAgMEAAFTBgQDBAQTGhMCFWwcFVBbVxAJFQRTUFNTUUVCEx8VUFoVAxZDEB8VAVwUDxdAAhgFHQcTHBVaUmlEEQ1ABQcXGRVTUhMJFUNRWV1bWw8BB1sDBgQMDxMaE15dEwpsCBgGHgNqThdUWVpQEwwTAgEFAQ8IAAUBCwBVA0gEYH96AnBrZ1VIZ3RwcEtkWgZBZF90T3xRDA4ZYAJPbWx%2BB3dVDmdVUWBlQmNjfU5zWFQLfXRWdVUVRWB6dGUDfmR1RGldRGNjTFp3fSNvUnNnWFdgS0B2d3FbYXN3XXJ5U2RjfmFAR3VYRA98SQ9TcE5%2Fe2cxfA5lXH1CYGdUVHpyVEt3bnR3eVN4AncFRFJ8YgdPcndcX39MUXRxM0JUeV1yU3VYUERzWURDfF9zAFUbUn9RTHpLY1sHUHZyQGl%2FcnN4dg5kUXRcU0l7SUBmeV5xX3sFfwdTM01UcAUPWhgBAVUEVAIKUUhLHwYcS0h3S2RZeHJ2UFpjYggBUnoCBgBnYFpQYGcPUmZ1eFVyCHVlcVtxNm0HQlBiXQ9UZmUAZW9SYmJlZWImdHR4VnJdd2JwX39ickFDZ2cCYRRnTnx5cUZ3dXZPAWNle3F9d1RcKndRbGR%2Fc3BrYk94fHFOcVNzcXoBcFoAdHJWRWJyZnRzdntxVXcCeTtzQVpkYlZ%2FVHJfAXNyUkMLTAJRUVBcQ0wVHRRcQFATChUbSQ%3D%3D~1lm1ahf`,"sceneid":"ZNSZLh5"},"secretp":secretp,"random":randomString(6)},"inviteId":inviteId};
+	let body={"ss":{"extraData":{"log":`${new Date().getTime()}~1vlnX8iPwWFMDFJcWV0aTAxMQ%3D%3D.eEdRRVF6Q1ZNXHlIVApbLkQpRlwlQyoiF3hdUlhQZUAbRhd4Dwg7LAQADEUBJgcXBlAtM1caPDFaIiU4dEwb.b8d8d2df~9%2C1~3D5BE5E27DD72784C2AB56EEF4A40A4D4CC25000~0f3z4c8~C~TBUSWxEMbzsaFEZcWBINbBFcAxoBfkp3eBoGKWEaAxwFAAcbRxoaFVMASwB6GnUtGgRjAxkBGQcDCBpDFRtEUgIbAi8ad3keB2IPG0YUQhVqG0RRQVgWXAcaEEFGEg0VAg4CBg8EVAUKAAxWAQ8FBQwSGxVEXVIVDRUSQkdCQABDUBAeF0dSVhECFFFRQxJCR0NVRBoUQlZbEg1sChQCBxsFSgUfBxhTaxoQWF8SDQYfGlVEFQ1EAAAFAVRTUgRQDAECUQpaVAQDBgUBBwRSUQICUANTUwcVHxpYRxUNRHpaWEEeFldTQFZYAQMRFBRDFQ1XAAcHDFUEBQsFAAEHGxFSXRUNFUsCUAINAwVQV1EEUgYaCwsFUlYGUw9WU1JUA1IFARccFVFDWhQNFVopc35HXVdeWURARwlTdQFWY08ccDdnDgsWShRYRBAPEnBYXF9aUhd%2BCFUdFBhEWFdEEA8SDgYGDgUVGxUVVUEUDj0AAgIeBgYHah8aRFgVDT0Ufn8UUBQaEFNbVEVYWlwUGxUORBoRBwRIBBgEEBkSDgYGDgUVGxVeBQUFAVUCBQYBBAMHBAALAQQHBFMFAAUBVQQFHwUGdAUDAAsAAwQOVQMFBQdQAAMEAQMBBAUFCQUVGxVXFG4aFg9ZVxAIF1ZRUVVeUENDFUoUUlwWXBRDEB4XU14VCRpBBBkDSAYRGhYFUGlEEA8SBwYRFBRVUxVcFEFXWgJZWw8DBwcEAQUJDxUbFQtcEQxvVxoGHgJoHBVVX1dRFQ0VVwAHBwxVBAUKBQwADkkCCV8FD1gif0pOXitycEdRYEhdVnd5TnpQClsYawZQUmNacFZkeFtlawkHc1JlV2d4BmZWY14DUXZJfk91UF5TeVxfdWJddR9gZGhUcUkGY3xPbwdRczNDcHV%2BXnBfY1F9eA9WcUF3cn5kL2V%2FQWUvd2ICUHNXXE52fAN%2FUVs%2FT31yQyd0BwtUfXhQBXhuVQRzXidQdXN9VnxkWVNlWVRhcnkGQH5kDXV0UXU%2Fc3cGQGdxenBkbA5uUmMneXFyVw18XgZlfmgPQn98QlZwdTMdclpEVnhgAlltWVNhY257ZxlTB1MGAlBVV0hLHgROSUlxRmV1eXYjUVhlYSAPUHReBGplW1RcY3EGUTBeflNxCn9lcWB7Ym8GB11jcQ5SMWQGY2wjZGRkdFZ0dl9%2BXXNbdmQlZH1icQ4OZWd0b0RjX3pzc2ZydCFeB2dmHnt%2Fd1VkenZAVGl%2BdXFtN2R6f3MBc1VzWnhWcFsKe3NmRGYnd3p3dR57U3ded2pyZlxpYUB6UidkC3RzDQ4LTANNAQFQVlQUGxVaFVERDBZESw%3D%3D~0hm8ftu`,"sceneid":"ZNSZLh5"},"secretp":secretp,"random":randomString(6)},"inviteId":inviteId};
 	
 	return new Promise((resolve) => {
-		$.post(taskPostUrl("tigernian_pk_collectPkExpandScore",body), async (err, resp, data) => {
+		$.post(taskPostUrl("tigernian_doDropTask",body), async (err, resp, data) => {
       try {
 					console.log(data)
-					console.log('109')
         if (err) {
-          console.log(`${JSON.stringify(err)}111`)
-          console.log(`${$.name} API请求失败，请检查网路重试112`)
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.code === 0) {
               if (data.data && data['data']['bizCode'] === 0) {
 					console.log(data.msg)
-					console.log('119')
               } 
             } else {
-              console.log(`\n\n 失败121:${JSON.stringify(data)}\n`)
+              console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
             }
           }
         }
@@ -165,7 +163,7 @@ function taskPostUrl2(functionId,body) {
 }
 
 function getUA(){
-	$.UA = `jdapp;android;10.2.6;;;appBuild/91563;ef/1;ep/%7B%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22ts%22%3A1641814343287%2C%22ridx%22%3A-1%2C%22cipher%22%3A%7B%22sv%22%3A%22EG%3D%3D%22%2C%22ad%22%3A%22ENCzZWOnDJvvZWYyDWG3Cm%3D%3D%22%2C%22od%22%3A%22DJUmDWVtCtrrENYyZQS0%22%2C%22ov%22%3A%22Ctq%3D%22%2C%22ud%22%3A%22ENY1DNGnCNC3CNUzDJS3BJHtDNvvC2ZvYzPsCG%3D%3D%22%7D%2C%22ciphertype%22%3A5%2C%22version%22%3A%221.2.0%22%2C%22appname%22%3A%22com.jingdong.app.mall%22%7D;jdSupportDarkMode/0;Mozilla/5.0 (Linux; Android 9; MI 6 Build/PKQ1.190118.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.72 MQQBrowser/6.2 TBS/045913 Mobile Safari/537.36`
+	$.UA = `jdapp;android;10.2.6;;;appBuild/91563;ef/1;ep/%7B%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22ts%22%3A1641832393661%2C%22ridx%22%3A-1%2C%22cipher%22%3A%7B%22sv%22%3A%22EG%3D%3D%22%2C%22ad%22%3A%22ENCzZWOnDJvvZWYyDWG3Cm%3D%3D%22%2C%22od%22%3A%22DJUmDWVtCtrrENYyZQS0%22%2C%22ov%22%3A%22Ctq%3D%22%2C%22ud%22%3A%22ENY1DNGnCNC3CNUzDJS3BJHtDNvvC2ZvYzPsCG%3D%3D%22%7D%2C%22ciphertype%22%3A5%2C%22version%22%3A%221.2.0%22%2C%22appname%22%3A%22com.jingdong.app.mall%22%7D;jdSupportDarkMode/0;Mozilla/5.0 (Linux; Android 9; MI 6 Build/PKQ1.190118.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.72 MQQBrowser/6.2 TBS/045913 Mobile Safari/537.36`
 }
 function randomString(e) {
 	e = e || 32;
