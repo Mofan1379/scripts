@@ -1,8 +1,7 @@
+let inviteCodes = ["PKASTT0205KkcBVxhpiaVXVKv3bBXCTdWnIaRzTIjeQOc"]
 
 const $ = new Env('膨胀红包助力');
-
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-
 
 let cookiesArr = [], cookie = '', message;
 let secretp='',inviteId=[]
@@ -16,7 +15,6 @@ if ($.isNode()) {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
-let inviteCodes = ["PKASTT0205KkcBVxhpiaVXVKv3bBXCTdWnIaRzTIjeQOc"]
 
 !(async () => {
   if (!cookiesArr[0]) {
