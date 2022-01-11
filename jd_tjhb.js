@@ -113,9 +113,9 @@ function tigernian_collectScore123(inviteId){
 				num = ++num
 				difference = --difference
 			}else if((this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12)) == "好友人气爆棚不需要助力啦"){
-			difference = 0
+				difference = 0
 			}else{
-			this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12);
+				this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12);
 			}
 			console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】☞ ' + this.result + '\n        【成功数】☞ ' + num + ' 个' + '【还缺】☞ ' + difference + ' 个');
 					
