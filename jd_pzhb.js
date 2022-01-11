@@ -106,14 +106,14 @@ function tigernian_collectScore123(inviteId){
 	return new Promise((resolve) => {
 		$.post(taskPostUrl("tigernian_pk_collectPkExpandScore",body), async (err, resp, data) => {
       try {
-					//console.log(data)
-					var name = data
-					this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('","success'||'","result'));
-					if (this.result == "success"){
-						num = ++num
-						difference = --difference
-					}
-					console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】☞ ' + this.result + '\n        【成功数】☞ ' + num + ' 个' + '【还缺】☞ ' + difference + ' 个');
+			//console.log(data)
+			var name = data
+			this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('","success'||'","result'));
+			if (this.result == "success"){
+				num = ++num
+				difference = --difference
+				}
+			console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】☞ ' + this.result + '\n        【成功数】☞ ' + num + ' 个' + '【还缺】☞ ' + difference + ' 个');
 					
         if (err) {
           console.log(`${JSON.stringify(err)}`)
