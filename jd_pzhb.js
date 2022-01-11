@@ -39,7 +39,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 		$.isLogin = true;
 		$.nickName = '';
 		message = '';
-		console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
+		//console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
 		try {
 			await get_secretp()
 			for (let i = 0; i < inviteCodes.length; i++) {
@@ -104,7 +104,10 @@ function tigernian_collectScore123(inviteId){
 	return new Promise((resolve) => {
 		$.post(taskPostUrl("tigernian_pk_collectPkExpandScore",body), async (err, resp, data) => {
       try {
-					console.log(data)
+					//console.log(data)
+					var name = data
+					this.result=name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('","success'||'","result'));
+					console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】☞ ' + this.result);
         if (err) {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
