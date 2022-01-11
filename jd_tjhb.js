@@ -107,7 +107,7 @@ function tigernian_collectScore123(inviteId){
 					//console.log(data)
 					var name = data
 					this.result=name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('","success'||'","result'));
-					console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】☞ ' + this.result);
+					console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】' + this.result);
         if (err) {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
