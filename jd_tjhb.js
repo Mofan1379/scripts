@@ -5,6 +5,8 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
 let cookiesArr = [], cookie = '', message;
 let secretp='',inviteId=[]
+var num = 0
+var difference = 25
 
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -106,8 +108,13 @@ function tigernian_collectScore123(inviteId){
       try {
 					//console.log(data)
 					var name = data
-					this.result=name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('","success'||'","result'));
-					console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】☞ ' + this.result);
+					this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('","success'||'","result'));
+					if (this.result == "success"){
+						num = ++num
+						difference = --difference
+					}
+					console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】☞ ' + this.result + '\n        【成功数】☞ ' + num + ' 个' + '【还缺】☞ ' + difference + ' 个');
+					
         if (err) {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
