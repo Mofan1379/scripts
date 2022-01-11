@@ -112,7 +112,7 @@ function tigernian_collectScore123(inviteId){
 			if (this.result == "success"){
 				num = ++num
 				difference = --difference
-			}else if((this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12)) == "TA已经获得足够的助力了|不需要助力啦~"||(this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12)) == "助力已结束|下次早点来吧"){
+			}else if((this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12)) == "TA已经获得足够的助力了"||(this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12)) == "助力已结束|下次早点来吧"||(this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12)) == "TA已经获得足够的助力了|不需要助力啦~"){
 				difference = 0
 			}else{
 				this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12);
