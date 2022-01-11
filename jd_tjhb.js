@@ -113,7 +113,7 @@ function tigernian_collectScore123(inviteId){
 				num = ++num
 				difference = --difference
 			}else{
-			this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('bizMsg') + 28);	
+			this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12);
 			}
 			console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】☞ ' + this.result + '\n        【成功数】☞ ' + num + ' 个' + '【还缺】☞ ' + difference + ' 个');
 					
@@ -125,7 +125,7 @@ function tigernian_collectScore123(inviteId){
             data = JSON.parse(data);
             if (data.code === 0) {
               if (data.data && data['data']['bizCode'] === 0) {
-					console.log(data.msg)
+					//console.log(data.msg)
               } 
             } else {
               console.log(`\n\n 失败:${JSON.stringify(data)}\n`)
