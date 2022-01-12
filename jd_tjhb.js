@@ -117,7 +117,7 @@ function tigernian_collectScore123(inviteId){
 			}else{
 				this.result = name.substring( name.lastIndexOf('bizMsg') + 9, name.lastIndexOf('false')  -  12);
 			}
-			console.log(`【账号${$.index}】${$.nickName || $.UserName}` + '【结果】☞ ' + this.result + '\n        【成功数】☞ ' + num + ' 个' + '【还缺】☞ ' + difference + ' 个');
+			console.log(`【账号${$.index}】${$.nickName || $.UserName}\n` + '【结果】☞ ' + this.result + '\n【成功数】☞ ' + num + ' 个' + '【还缺】☞ ' + difference + ' 个\n');
 					
         if (err) {
           console.log(`${JSON.stringify(err)}`)
